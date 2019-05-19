@@ -1,0 +1,874 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Data Mining">
+      
+      
+        <link rel="canonical" href="https://github.com/BULLZHIT/bismillah Decision Tree/">
+      
+      
+        <meta name="author" content="MOCH IRFAN SETIAWAN">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+    
+    
+      
+        <title>Decision Tree - Data Mining</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "None", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#decision-tree" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.com/BULLZHIT/" title="Data Mining" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Data Mining
+            </span>
+            <span class="md-header-nav__topic">
+              Decision Tree
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/BULLZHIT/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    https://github.com/BULLZHIT/
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="Penulis" class="md-tabs__link md-tabs__link--active">
+        Penulis
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.com/BULLZHIT/" title="Data Mining" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Data Mining
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/BULLZHIT/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    https://github.com/BULLZHIT/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Penulis" class="md-nav__link">
+      Penulis
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../bismillah KMEAN/" title="K Mean Clustering" class="md-nav__link">
+      K Mean Clustering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../bismillah KNN/" title="K-NEAREST NEIGHBOR" class="md-nav__link">
+      K-NEAREST NEIGHBOR
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Decision Tree
+      </label>
+    
+    <a href="./" title="Decision Tree" class="md-nav__link md-nav__link--active">
+      Decision Tree
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pendahuluan" title="Pendahuluan" class="md-nav__link">
+    Pendahuluan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kelebihan-decision-tree" title="Kelebihan Decision Tree" class="md-nav__link">
+    Kelebihan Decision Tree
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kekurangan-decision-tree" title="Kekurangan Decision Tree" class="md-nav__link">
+    Kekurangan Decision Tree
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pendahuluan" title="Pendahuluan" class="md-nav__link">
+    Pendahuluan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kelebihan-decision-tree" title="Kelebihan Decision Tree" class="md-nav__link">
+    Kelebihan Decision Tree
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kekurangan-decision-tree" title="Kekurangan Decision Tree" class="md-nav__link">
+    Kekurangan Decision Tree
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="decision-tree">Decision Tree</h1>
+<h2 id="pendahuluan">Pendahuluan</h2>
+<p><img alt="" src="../assets/images/Decision-Tree.gif" /></p>
+<p>Decision tree atau pohon keputusan  adalah alat pendukung keputusan yang menggunakan model keputusan yang  berbentuk seperti pohon. Decision tree memetakan berbagai alternatif  yang mungkin untuk mengatasi suatu masalah, dan terdapat juga  faktor-faktor kemungkinan yang dapat mempengaruhi alternatif tersebut  beserta estimasi akhirnya jika memilih alternatif yang ada. Decision  tree merupakan salah satu metode yang bisa digunaan untuk menampilkan  algoritma dimana hanya berisi pernyataan kontrol bersyarat.</p>
+<p>Penggunaan Decision tree ini umunya  dalam riset operasi, khususnya dalam analisis keputusan. Tujuan dalam  menggunakan Decision tree untuk membantu mengidentifikasi strategi yang  paling mungkin untuk mencapai tujuan dan merupakan alat yang populer  dalam machine learning.</p>
+<p>Decision tree merupakan struktur seperti  bagan alur dimana setiap simpul internal mewakili kemungkinan yang ada  pada atribut, setiap cabang mewakili hasil dari kemungkinan tersebut,  dan setiap simpul daun mewakili label kelas (keputusan diambil setelah  menghitung semua atribut). Jalur dari root ke daun mewakili aturan  klasifikasi.</p>
+<p>Dalam analisis keputusan, decision tree  dan diagram yang terkait dengan itu digunakan sebagai alat pendukung  keputusan visual dan analitis</p>
+<p>Kelebihan dan Kekurangan Decision Tree</p>
+<h2 id="kelebihan-decision-tree">Kelebihan Decision Tree</h2>
+<ol>
+<li>Mudah dimengerti dan dipahami. Orang-orang bisa memahami model decision tree dengan penjelasan singkat.</li>
+<li>Memiliki nilai walaupun dengan sedikit data yang rumit. Wawasan  penting dapat dihasilkan berdasarkan para ahli yang menggambarkan  situasi dan preferensi mereka untuk hasil.</li>
+<li>Membantu menentukan nilai terburuk, terbaik, dan nilai yang diharapkan untuk berbagai skenario.</li>
+<li>Menggunakan model kotak putih jika hasil diberikan oleh model.</li>
+<li>Dapat dikombinasikan dengan teknik pengambilan keputusan lainnya.</li>
+</ol>
+<h2 id="kekurangan-decision-tree">Kekurangan Decision Tree</h2>
+<ol>
+<li>Tidak stabil, yang berarti bahwa  perubahan kecil dalam data dapat menyebabkan perubahan besar dalam  struktur decision tree optimal.</li>
+<li>Relatif tidak akurat. Banyak prediktor  lain memiliki kinerja yang lebih baik dengan data serupa. Hal ini dapat  diatasi dengan mengganti decision tree tunggal dengan forest of decision  tree acak. Namun hutan yang acak tidak semudah memahami decision tree  tunggal.</li>
+<li>Untuk data yang termasuk variabel  kategorikal dengan jumlah level yang berbeda, perolehan informasi dalam  decision tree cenderung mendukung atribut dengan level yang lebih  banyak.</li>
+<li>Perhitungan bisa menjadi sangat kompleks, terutama jika banyak nilai tidak pasti dan / atau jika banyak hasil dikaitkan.</li>
+</ol>
+<h1 id="algoritma-decision-tree">Algoritma Decision Tree</h1>
+<h2 id="langkah-langkah-algortimadecision-tree">Langkah-langkah algortimaDecision Tree :</h2>
+<ol>
+<li>Menghitung Entropy total Dataset</li>
+<li>Menghitung Entropy dan Gain tiap atribut</li>
+<li>Membuat table perhitungan Node </li>
+<li>Membuat Node dengan hasil Gain tertinggi dari table</li>
+<li>Mengulangi langkah 2 - 5 hingga tidak ada node lagi</li>
+</ol>
+<h2 id="contoh-perhitungan-k-means">Contoh Perhitungan K-Means</h2>
+<p>Diketahui dataset adalah sebagai berikut  :</p>
+<p><img alt="" src="../assets/images/Decision-Tree1.jpg" /></p>
+<p><strong>Atribut :</strong> Pelatih, kandang sendiri, latihan, stamina, mental
+ <strong>Kelas     :</strong> Menang = ya atau tidak
+ <strong>Jumlah data ada 12, terdiri dari :</strong>
+ Ya       = 7
+ Tidak = 5</p>
+<p><strong>1.Menghitung Entropy Total Dataset</strong></p>
+<p><img alt="" src="../assets/images/entropi.jpg" /></p>
+<p>Entrophy [Total]</p>
+<p><img alt="" src="../assets/images/decision-tree2.jpg" /></p>
+<p><strong>2. Menghitung Entropy dan Gain Tiap Atribut</strong></p>
+<p><img alt="" src="../assets/images/decision-tree3.jpg" /></p>
+<p><img alt="" src="../assets/images/decision-tree4.jpg" /></p>
+<p><img alt="" src="../assets/images/decision-tree5.jpg" /></p>
+<p><img alt="" src="../assets/images/decision-tree6.jpg" /></p>
+<p><img alt="" src="../assets/images/decision-tree7.jpg" /></p>
+<p><strong>Tabel Perhitungan Node 1</strong></p>
+<p><img alt="" src="../assets/images/decision-tree8.jpg" /></p>
+<p>Setelah melakukan perhitungan tersebut, maka dapat dilihat bahwa  nilai gain terbesar adalah Gain pada atribut Mental, maka Mental yang  akan menjadi node akar <em>(root node)</em>.</p>
+<p>Ada dua nilai dari atribut Mental yaitu PD dan Gerogi. Nilai atribut  Gerogi sudah mengklasifikasikan kasus menjadi satu yaitu keputusannya <em>“Tidak”</em>,  sehingga tidak perlu dilakukan perhitungan lebih lanjut. Tetapi untuk  nilai atribut PD masih perlu dilakukan perhitungan lagi , karena masih  terdapat <em>“Ya”</em> dan <em>“Tidak”.</em></p>
+<p>Gambar decision tree sementara :</p>
+<p><img alt="" src="../assets/images/decision-tree9.png" /></p>
+<p>Berdasarkan pembentukan decision tree diatas, Node 1.1 akan dianalisis lebih lanjut. Berikut tabel data yang memiliki atribut Mental = PD.</p>
+<p><img alt="" src="../assets/images/decision-tree10.jpg" /></p>
+<p><strong>Menghitung Entropi Total dari Dataset Node 1.1 :</strong></p>
+<p><img alt="" src="../assets/images/entropi.jpg" /></p>
+<p><img alt="" src="../assets/images/decision-tree11.png" /></p>
+<p><strong>Menghitung Entropi dan Gain dari Keseluruhan Atribut Node 1.1 :</strong></p>
+<p><img alt="" src="../assets/images/decision-tree12.jpg" /></p>
+<p>Selanjutnya menentukan atribut yang memiliki gain tertinggi untuk dibuatkan node berikutnya. Gain tertinggi adalah <strong>Latihan</strong>, sebesar 0.5435644433. Ada tiga nilai dari atribut Latihan yaitu Rutin, Jarang, dan Tidak ada. Nilai atribut <em>Rutin</em> sudah mengklasifikasikan kasus menjadi satu yaitu keputusannya “Ya” , nilai atribut <em>Jarang</em> juga sudah mengklasifikasikan kasus menjadi satu yaitu keputusannya “Ya”, sedangkan nilai atribut <em>Tidak ada</em> mengklasifikasi kasus menjadi satu, yaitu keputusannya “Tidak”, sehingga tidak perlu melakukan perhitungan lebih lanjut.</p>
+<p>Dengan demikian decision tree akan tampak seperti berikut :<img alt="" src="../assets/images/decision-tree13.jpg" /></p>
+<h1 id="implementasi">Implementasi</h1>
+<p>hal yang diperlukan dalam pengimplementasian</p>
+<ul>
+<li>python 3.6</li>
+<li>Jupyter Notebook</li>
+</ul>
+<p>library yang harus di install</p>
+<ul>
+<li>numpy library</li>
+</ul>
+<pre><code class="sh">pip install numpy
+</code></pre>
+
+<ul>
+<li>Pandas library</li>
+</ul>
+<pre><code class="sh">pip install pandas
+</code></pre>
+
+<ul>
+<li>matplotlib library</li>
+</ul>
+<pre><code class="sh">pip install matplotlib
+</code></pre>
+
+<ul>
+<li>sklearn library</li>
+</ul>
+<pre><code class="sh">pip install sklearn 
+</code></pre>
+
+<ul>
+<li>seaborn library</li>
+</ul>
+<pre><code class="sh">pip install seaborn
+</code></pre>
+
+<ul>
+<li>graphviz library</li>
+</ul>
+<pre><code class="sh">pip install graphviz
+</code></pre>
+
+<ul>
+<li>ipython library</li>
+</ul>
+<pre><code class="sh">pip install ipython 
+</code></pre>
+
+<h2 id="step-1import-library">Step 1,import Library</h2>
+<p>setelah menginstall library yang diperlukan kita dapat mengimport library kedalam koding</p>
+<pre><code class="python">import pandas as pd
+import numpy as np
+%matplotlib inline
+from matplotlib import pyplot as plt
+plt.style.use('ggplot')
+from sklearn import tree
+import sklearn.metrics as metrics
+from sklearn import model_selection
+from sklearn import tree
+from IPython.display import Image  
+import pydotplus
+
+</code></pre>
+
+<h2 id="step-2import-data">Step 2,import Data</h2>
+<pre><code class="python">df = pd.read_csv('./mushrooms.csv')
+df.head()
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>class</th>
+<th>cap-shape</th>
+<th>cap-surface</th>
+<th>cap-color</th>
+<th>bruises</th>
+<th>odor</th>
+<th>gill-attachment</th>
+<th>gill-spacing</th>
+<th>gill-size</th>
+<th>gill-color</th>
+<th>...</th>
+<th>stalk-surface-below-ring</th>
+<th>stalk-color-above-ring</th>
+<th>stalk-color-below-ring</th>
+<th>veil-type</th>
+<th>veil-color</th>
+<th>ring-number</th>
+<th>ring-type</th>
+<th>spore-print-color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td>p</td>
+<td>x</td>
+<td>s</td>
+<td>n</td>
+<td>t</td>
+<td>p</td>
+<td>f</td>
+<td>c</td>
+<td>n</td>
+<td>k</td>
+<td>...</td>
+<td>s</td>
+<td>w</td>
+<td>w</td>
+<td>p</td>
+<td>w</td>
+<td>o</td>
+<td>p</td>
+<td>k</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>e</td>
+<td>x</td>
+<td>s</td>
+<td>y</td>
+<td>t</td>
+<td>a</td>
+<td>f</td>
+<td>c</td>
+<td>b</td>
+<td>k</td>
+<td>...</td>
+<td>s</td>
+<td>w</td>
+<td>w</td>
+<td>p</td>
+<td>w</td>
+<td>o</td>
+<td>p</td>
+<td>n</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>e</td>
+<td>b</td>
+<td>s</td>
+<td>w</td>
+<td>t</td>
+<td>l</td>
+<td>f</td>
+<td>c</td>
+<td>b</td>
+<td>n</td>
+<td>...</td>
+<td>s</td>
+<td>w</td>
+<td>w</td>
+<td>p</td>
+<td>w</td>
+<td>o</td>
+<td>p</td>
+<td>n</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>p</td>
+<td>x</td>
+<td>y</td>
+<td>w</td>
+<td>t</td>
+<td>p</td>
+<td>f</td>
+<td>c</td>
+<td>n</td>
+<td>n</td>
+<td>...</td>
+<td>s</td>
+<td>w</td>
+<td>w</td>
+<td>p</td>
+<td>w</td>
+<td>o</td>
+<td>p</td>
+<td>k</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>e</td>
+<td>x</td>
+<td>s</td>
+<td>g</td>
+<td>f</td>
+<td>n</td>
+<td>f</td>
+<td>w</td>
+<td>b</td>
+<td>k</td>
+<td>...</td>
+<td>s</td>
+<td>w</td>
+<td>w</td>
+<td>p</td>
+<td>w</td>
+<td>o</td>
+<td>e</td>
+<td>n</td>
+</tr>
+</tbody>
+</table>
+<p>Dari hasil semua fitur bernilai kategorikal</p>
+<h2 id="step-3data">Step 3,Data</h2>
+<p>Kita akan menampilkan jenis dan jumlah data dari mushroom</p>
+<pre><code class="python">df['class'].value_counts()  
+</code></pre>
+
+<p>e    4208
+p    3916
+Name: class, dtype: int64</p>
+<p>dari outpu diatas dapat disimpulkan data memiliki 2 kelas yaitu :'e' dan 'p'</p>
+<h2 id="step-4pembagian-data">Step 4,Pembagian Data</h2>
+<p>untuk kemudahahan memproses data kita perlu membagi data target dan atribut yang disimbolkan dengan X dan Y</p>
+<pre><code class="python">Y = df['class']
+X = df[df.columns[1:]]
+</code></pre>
+
+<p>lalu memasukkan dalam fungsi berikut </p>
+<pre><code class="python">def naive_split(X, Y, n):
+    # Take first n lines of X and Y for training and the rest for testing
+    X_train = X[:n]
+    X_test  = X[n:]
+    Y_train = Y[:n]
+    Y_test  = Y[n:]
+    return (X_train, X_test, Y_train, Y_test)
+def train_model(n=7000):
+    # Given X_dummy and Y_dummy, split naively into training and testing sets
+    X_train, X_test, Y_train, Y_test = naive_split(X_dummy, Y_dummy, n)
+    # Instantiate a default decision tree with fixed random state
+    # NOTE: In real life you'd probably want to remove the fixed seed.
+    clf = tree.DecisionTreeClassifier(random_state=42)
+    # Next, train a default decision tree using the training sets
+    clf = clf.fit(X_train, Y_train)
+    # Lastly, return the test sets and the trained model
+    return (X_test, Y_test, clf)
+
+</code></pre>
+
+<h2 id="step-5menghitung-entropy">Step 5,Menghitung Entropy</h2>
+<pre><code class="python">score = []
+precision = []
+recall = []
+index = np.arange(1,X_dummy.shape[1]+1)
+for i in index:
+    clf = tree.DecisionTreeClassifier(
+        criterion='entropy', 
+        splitter='best', 
+        max_depth=None, 
+        min_samples_split=2, 
+        min_samples_leaf=1, 
+        min_weight_fraction_leaf=0.0, 
+        max_features=i, 
+        random_state=42, # we override the default here for the sake of reproducibility
+        max_leaf_nodes=None, 
+        min_impurity_split=1e-07, 
+        class_weight=None, 
+        presort=False)
+    tmp = test_tree(clf, X_train, X_test, Y_train, Y_test, print_res=False)
+    score.append(tmp[0])
+    precision.append(tmp[1])
+    recall.append(tmp[2])
+
+pd.DataFrame({'Accuracy': score, 'Precision': precision, 'Recall': recall}, index=index).plot(figsize=(20,8), marker='*')
+plt.xticks(index, rotation=90)
+plt.xlabel('Number of features')
+plt.ylabel('Score');
+</code></pre>
+
+<h2 id="step-6visualisasi-data-menjadi-decision-tree">Step 6,Visualisasi Data Menjadi Decision Tree</h2>
+<p>setelah mendapatkan data training sebanyak 75% dari data kesuluruhan,langkah selanjutnya adalah menguji cobanya pada 25% data testing</p>
+<pre><code class="python">X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X_dummy, Y_dummy, test_size=0.75,random_state=42)
+clf =tree.DecisionTreeClassifier(random_state=42) clf = clf.fit(X_train, Y_train)
+dot_data = tree.export_graphviz(clf, out_file=None,
+                                class_names=['p','e'],
+                                filled=True, rounded=True)  
+graph = pydotplus.graph_from_dot_data(dot_data)  
+Image(graph.create_png())
+</code></pre>
+
+<p><img alt="" src="../assets/images/decision-treegraph.png" /></p>
+<p>Note : Dataset dan Program bisa didownload dan dilihat dalam <a href="https://github.com/BULLZHIT/Data">DISINI</a></p>
+<h1 id="referensi">Referensi</h1>
+<ol>
+<li>https://www.kaggle.com/jnduli/decision-tree-classifier-for-mushroom-dataset</li>
+<li>http://drorata.github.io/posts/2017/Mar/31/mushrooms-and-decision-trees/index.html</li>
+<li>http://student.blog.dinus.ac.id/devina09/2017/04/18/perhitungan-decision-tree-dengan-algoritma-c45/</li>
+<li>https://informatikalogi.com/algoritma-id3/</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../bismillah KNN/" title="K-NEAREST NEIGHBOR" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                K-NEAREST NEIGHBOR
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            MOCH IRFAN SETIAWAN
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.8c0d971c.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
